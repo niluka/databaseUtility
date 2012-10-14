@@ -10,6 +10,14 @@ Begin VB.Form frmCreateCodeSS
    MDIChild        =   -1  'True
    ScaleHeight     =   7725
    ScaleWidth      =   14205
+   Begin VB.TextBox txtType 
+      Height          =   4815
+      Left            =   9240
+      MultiLine       =   -1  'True
+      TabIndex        =   15
+      Top             =   2760
+      Width           =   2415
+   End
    Begin VB.TextBox txtConnName 
       Height          =   375
       Left            =   6120
@@ -176,22 +184,22 @@ End Function
     
 Private Function getDataType(AccessDataType As Integer, IsAutoIncrement As Boolean) As MyDataType
     Select Case AccessDataType
-        Case 1:
+        Case 20:
             If (IsAutoIncrement) Then
                 getDataType = MyDataType.MyID
             Else
                 getDataType = MyDataType.MyLong
             End If
-        Case 2:
-                getDataType = MyDataType.MyDouble
-        Case 3:
-                getDataType = MyDataType.MyText
-        Case 4:
-                getDataType = MyDataType.MyMemo
         Case 5:
+                getDataType = MyDataType.MyDouble
+        Case 202:
+                getDataType = MyDataType.MyText
+        Case 203:
+                getDataType = MyDataType.MyMemo
+        Case 11:
                 getDataType = MyDataType.MyBoolean
                 
-        Case 7:
+        Case 135:
                 getDataType = MyDataType.MyDate
         Case Else:
                 getDataType = MyDataType.MyOther
@@ -366,6 +374,7 @@ Private Sub lstDB1_Click()
             Set temField = New DataField
             temField.FieldName = .Fields(i).Name
             temField.FieldType = getDataType(.Fields(i).Type, .Fields(i).Properties(5).Value)
+            txtType.Text = txtType.Text & vbNewLine & .Fields(i).Name & vbTab & .Fields(i).Type
             allFields.Add temField
         Next i
         
