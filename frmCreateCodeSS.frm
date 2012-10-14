@@ -176,19 +176,19 @@ End Function
     
 Private Function getDataType(AccessDataType As Integer, IsAutoIncrement As Boolean) As MyDataType
     Select Case AccessDataType
-        Case 3:
+        Case 1:
             If (IsAutoIncrement) Then
                 getDataType = MyDataType.MyID
             Else
                 getDataType = MyDataType.MyLong
             End If
-        Case 5:
+        Case 2:
                 getDataType = MyDataType.MyDouble
-        Case 202:
+        Case 3:
                 getDataType = MyDataType.MyText
-        Case 203:
+        Case 4:
                 getDataType = MyDataType.MyMemo
-        Case 11:
+        Case 5:
                 getDataType = MyDataType.MyBoolean
                 
         Case 7:
