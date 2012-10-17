@@ -12,7 +12,7 @@ Begin VB.Form frmCreateCodeSS
    ScaleWidth      =   14205
    Begin VB.TextBox txtType 
       Height          =   4815
-      Left            =   9240
+      Left            =   9360
       MultiLine       =   -1  'True
       TabIndex        =   15
       Top             =   2760
@@ -64,11 +64,11 @@ Begin VB.Form frmCreateCodeSS
    End
    Begin VB.TextBox txtSql 
       Height          =   4815
-      Left            =   9480
+      Left            =   11760
       MultiLine       =   -1  'True
       TabIndex        =   3
       Top             =   2760
-      Width           =   3975
+      Width           =   2175
    End
    Begin VB.TextBox txtVB1 
       Height          =   4815
@@ -190,6 +190,13 @@ Private Function getDataType(AccessDataType As Integer, IsAutoIncrement As Boole
             Else
                 getDataType = MyDataType.MyLong
             End If
+        Case 3:
+            If (IsAutoIncrement) Then
+                getDataType = MyDataType.MyID
+            Else
+                getDataType = MyDataType.MyLong
+            End If
+            
         Case 5:
                 getDataType = MyDataType.MyDouble
         Case 202:
@@ -362,6 +369,7 @@ Private Sub lstDB1_Click()
 
 
     txtVB1.Text = Empty
+    txtType.Text = Empty
     Dim rsTem As New ADODB.Recordset
     Dim allFields As New Collection
     Dim temField As DataField
