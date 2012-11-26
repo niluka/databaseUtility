@@ -3,7 +3,7 @@ Begin VB.MDIForm MDIForm1
    BackColor       =   &H8000000C&
    Caption         =   "MDIForm1"
    ClientHeight    =   3090
-   ClientLeft      =   165
+   ClientLeft      =   225
    ClientTop       =   855
    ClientWidth     =   4680
    LinkTopic       =   "MDIForm1"
@@ -21,7 +21,10 @@ Begin VB.MDIForm MDIForm1
          Caption         =   "Compare Databases"
       End
       Begin VB.Menu mnuToolsCreateCode 
-         Caption         =   "Create Code"
+         Caption         =   "Create Code for SQL Server"
+      End
+      Begin VB.Menu mnuAccessCode 
+         Caption         =   "Create code for MS-Access"
       End
       Begin VB.Menu mnuLab 
          Caption         =   "Lab"
@@ -40,6 +43,11 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 
+
+Private Sub mnuAccessCode_Click()
+    frmCreateCode.Show
+    frmCreateCode.ZOrder 0
+End Sub
 
 Private Sub mnuDC_Click()
     frmDC.Show
