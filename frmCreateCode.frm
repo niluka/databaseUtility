@@ -10,21 +10,30 @@ Begin VB.Form frmCreateCode
    MDIChild        =   -1  'True
    ScaleHeight     =   7725
    ScaleWidth      =   14205
-   Begin VB.TextBox txtSql 
-      Height          =   6855
-      Left            =   9480
-      MultiLine       =   -1  'True
-      TabIndex        =   4
+   WindowState     =   2  'Maximized
+   Begin VB.CommandButton btnVbCodeCopy 
+      Caption         =   "Copy VB6 Code"
+      Height          =   375
+      Left            =   5400
+      TabIndex        =   5
       Top             =   720
       Width           =   3975
    End
+   Begin VB.TextBox txtSql 
+      Height          =   6375
+      Left            =   9480
+      MultiLine       =   -1  'True
+      TabIndex        =   4
+      Top             =   1200
+      Width           =   3975
+   End
    Begin VB.TextBox txtVB1 
-      Height          =   6855
+      Height          =   6375
       Left            =   5400
       MultiLine       =   -1  'True
       ScrollBars      =   3  'Both
       TabIndex        =   3
-      Top             =   720
+      Top             =   1200
       Width           =   3975
    End
    Begin VB.ListBox lstDB1 
@@ -185,6 +194,11 @@ ErrHandler:
     If Not db Is Nothing Then db.Close
     Set NonSystemTables = Nothing
 End Function
+
+Private Sub btnVbCodeCopy_Click()
+    Clipboard.Clear
+    Clipboard.SetText txtVB1.Text
+End Sub
 
 Private Sub Form_Load()
     Call GetSettings

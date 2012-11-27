@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "COMDLG32.OCX"
+Object = "{F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0"; "comdlg32.ocx"
 Begin VB.Form frmCreateCodeSS 
    Caption         =   "Get Data From Tables"
    ClientHeight    =   7725
@@ -8,10 +8,11 @@ Begin VB.Form frmCreateCodeSS
    ClientWidth     =   14205
    LinkTopic       =   "Form2"
    MDIChild        =   -1  'True
-   ScaleHeight     =   7725
-   ScaleWidth      =   14205
+   ScaleHeight     =   10950
+   ScaleWidth      =   20250
+   WindowState     =   2  'Maximized
    Begin VB.TextBox txtType 
-      Height          =   4815
+      Height          =   6975
       Left            =   9360
       MultiLine       =   -1  'True
       TabIndex        =   15
@@ -63,15 +64,15 @@ Begin VB.Form frmCreateCodeSS
       Width           =   4215
    End
    Begin VB.TextBox txtSql 
-      Height          =   4815
-      Left            =   11760
+      Height          =   6975
+      Left            =   11880
       MultiLine       =   -1  'True
       TabIndex        =   3
       Top             =   2760
       Width           =   2175
    End
    Begin VB.TextBox txtVB1 
-      Height          =   4815
+      Height          =   7095
       Left            =   5400
       MultiLine       =   -1  'True
       ScrollBars      =   3  'Both
@@ -80,7 +81,7 @@ Begin VB.Form frmCreateCodeSS
       Width           =   3975
    End
    Begin VB.ListBox lstDB1 
-      Height          =   4740
+      Height          =   7080
       Left            =   120
       TabIndex        =   1
       Top             =   2760
