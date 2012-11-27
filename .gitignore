@@ -1,0 +1,10 @@
+/build/
+/dist/
+/Package/
+*.log
+*.exe
+*.TMP
+*.tmp
+*.SCC
+*.scc
+*.rar
