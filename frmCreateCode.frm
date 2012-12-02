@@ -277,7 +277,15 @@ Private Function createGetDetailsByID(fieldCollection As Collection, iDField As 
     temStr = temStr & "        If .RecordCount  <= 0 Then .addnew" & vbNewLine
     
     For Each temField In fieldCollection
-        If temField.FieldType <> MyID Then
+        If temField.FieldType = MyID Then
+            
+        ElseIf temField.FieldType = MyDate Then
+            temStr = temStr & "        if var" & temField.FieldName & " = 0 then" & vbNewLine
+            temStr = temStr & "            !" & temField.FieldName & " = Null" & vbNewLine
+            temStr = temStr & "        else" & vbNewLine
+            temStr = temStr & "            !" & temField.FieldName & " = var" & temField.FieldName & vbNewLine
+            temStr = temStr & "        end if" & vbNewLine
+        Else
             temStr = temStr & "        !" & temField.FieldName & " = var" & temField.FieldName & vbNewLine
         End If
     Next
