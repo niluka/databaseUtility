@@ -186,6 +186,16 @@ Set colTables = New Collection
 db.Close
 Set NonSystemTables = colTables
 
+
+
+
+
+
+
+
+
+
+
 Exit Function
 ErrHandler:
 On Error Resume Next
@@ -228,6 +238,7 @@ Private Sub lstDB1_Click()
     End With
     txtNo1.Text = i
     txtTot1.Text = Tot
+    On Error Resume Next
     lstDB2.ListIndex = lstDB1.ListIndex
 End Sub
 
@@ -262,6 +273,7 @@ Private Sub txtDB1_Change()
     Next i
     If cnnDB1.State = 1 Then cnnDB1.Close
     constr = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source= " & txtDB1.Text & ";Mode=ReadWrite;Persist Security Info=True;Jet OLEDB:System database=False;Jet OLEDB:Database Password=Bud7Nil"
+    If cnnDB1.State = 1 Then cnnDB1.Close
     cnnDB1.Open constr
 End Sub
 
@@ -275,5 +287,6 @@ Private Sub txtDB2_Change()
     Next i
     If cnnDB2.State = 1 Then cnnDB1.Close
     constr = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source= " & txtDB2.Text & ";Mode=ReadWrite;Persist Security Info=True;Jet OLEDB:System database=False;Jet OLEDB:Database Password=Bud7Nil"
+    If cnnDB2.State = 1 Then cnnDB2.Close
     cnnDB2.Open constr
 End Sub

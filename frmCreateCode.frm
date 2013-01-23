@@ -75,6 +75,8 @@ Option Explicit
     Dim cnnDB1 As New ADODB.Connection
     Dim constr As String
     Dim temSQL As String
+    Dim FSys As New Scripting.FileSystemObject
+
     
 Private Function getDataType(AccessDataType As Integer, IsAutoIncrement As Boolean) As MyDataType
     Select Case AccessDataType
@@ -369,6 +371,8 @@ Private Function createGetDetailsByID(fieldCollection As Collection, iDField As 
 End Function
 
 Private Sub txtDB1_Change()
+    If Trim(txtDB1.Text) = "" Then Exit Sub
+    If FSys.FileExists(txtDB1.Text) = False Then Exit Sub
     Dim MyTables As New Collection
     Set MyTables = NonSystemTables(txtDB1.Text)
     lstDB1.Clear
